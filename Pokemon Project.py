@@ -23,3 +23,12 @@ print("Merged DataFrame Info:")
 print(merged_df.info())
 print("Merged DataFrame Head:")
 print(merged_df.head())
+
+# Create a color map for Pokémon types with distinct hexadecimal colors
+type_colors = {
+    'grass': '#4CAF50', 'water': '#2196F3', 'fire': '#F44336', 'electric': '#FFEB3B',
+    'psychic': '#9C27B0', 'ice': '#00BCD4', 'dragon': '#FF9800', 'dark': '#212121',
+    'fairy': '#E91E63', 'fighting': '#795548', 'flying': '#03A9F4', 'poison': '#8E24AA',
+    'ground': '#8B4513', 'rock': '#9E9E9E', 'bug': '#ADFF2F', 'steel': '#A9A9A9',
+    'normal': '#C0C0C0', 'ghost': '#8A2BE2'
+}
