@@ -32,3 +32,53 @@ type_colors = {
     'ground': '#8B4513', 'rock': '#9E9E9E', 'bug': '#ADFF2F', 'steel': '#A9A9A9',
     'normal': '#C0C0C0', 'ghost': '#8A2BE2'
 }
+
+# Create the main window
+root = tk.Tk()
+root.title("Pokémon Data Visualization")
+
+# Create a dropdown menu with adjusted width
+selected_graph = tk.StringVar()
+graph_options = [
+    "Frequency of Pokémon Types",
+    "Types of Pokémon per Generation",
+    "Number of Legendary Pokémon per Generation"
+]
+selected_graph.set(graph_options[0])  # default value
+
+dropdown = ttk.Combobox(root, textvariable=selected_graph, values=graph_options, width=40)
+dropdown.pack(pady=10)
+
+# Create a frame for the plot
+plot_frame = tk.Frame(root)
+plot_frame.pack(pady=10, fill=tk.BOTH, expand=True)
+
+def plot_frequency_of_types():
+    """Plot the frequency of Pokémon types."""
+    if 'Type1' not in merged_df.columns or merged_df['Type1'].empty:
+        print("Error: 'Type1' column is missing or empty.")
+        return
+
+    fig, ax = plt.subplots(figsize=(12, 8))  # Adjust size for better formatting
+    type_counts = merged_df['Type1'].str.lower().value_counts()  # Convert to lowercase to match color map
+    
+    # Set colors based on Pokémon types
+    colors = [type_colors.get(t, '#B0BEC5') for t in type_counts.index]  # Default to light gray if type not found
+    
+    bars = ax.bar(type_counts.index, type_counts.values, color=colors)
+    ax.set_title('Frequency of Pokémon Types')
+    ax.set_xlabel('Type')
+    ax.set_ylabel('Count')
+    ax.tick_params(axis='x', rotation=45)  # Rotate x-axis labels for better readability
+
+    # Add legend to the side
+    handles = [plt.Line2D([0], [0], color=color, lw=4) for color in colors]
+    labels = [t.capitalize() for t in type_counts.index]
+    ax.legend(handles, labels, title='Type', bbox_to_anchor=(1.05, 1), loc='upper left')
+
+    # Adjust layout to fit all elements
+    plt.tight_layout()
+
+    canvas = FigureCanvasTkAgg(fig, master=plot_frame)
+    canvas.draw()
+    canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
