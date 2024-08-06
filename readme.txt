@@ -1,2 +1,1 @@
-This application will utilize the PokeAPI (https://pokeapi.co/) for any database necessary for the requirements of the capstone project.
-.
+This application will utilize two CSV files for the requirements of the capstone project.
