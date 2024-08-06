@@ -82,3 +82,70 @@ def plot_frequency_of_types():
     canvas = FigureCanvasTkAgg(fig, master=plot_frame)
     canvas.draw()
     canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
+
+def plot_types_per_generation():
+    """Plot the types of Pokémon per generation."""
+    if 'generation' not in merged_df.columns or merged_df['generation'].empty or 'Type1' not in merged_df.columns:
+        print("Error: Required columns are missing or empty.")
+        return
+
+    fig, ax = plt.subplots(figsize=(14, 8))  # Adjust size for better formatting
+    gen_type_counts = merged_df.groupby(['generation', 'Type1']).size().unstack().fillna(0)
+    
+    # Set colors based on Pokémon types
+    colors = [type_colors.get(t.lower(), '#B0BEC5') for t in gen_type_counts.columns]
+    
+    bars = gen_type_counts.plot(kind='bar', stacked=True, ax=ax, color=colors)
+    ax.set_title('Types of Pokémon per Generation')
+    ax.set_xlabel('Generation')
+    ax.set_ylabel('Count')
+
+    # Add legend to the side
+    handles = [plt.Line2D([0], [0], color=color, lw=4) for color in colors]
+    labels = [t.capitalize() for t in gen_type_counts.columns]
+    ax.legend(handles, labels, title='Type', bbox_to_anchor=(1.05, 1), loc='upper left')
+
+    # Adjust layout to fit all elements
+    plt.tight_layout()
+
+    canvas = FigureCanvasTkAgg(fig, master=plot_frame)
+    canvas.draw()
+    canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
+
+def plot_legendary_per_generation():
+    """Plot the number of legendary Pokémon per generation."""
+    if 'is_legendary' not in merged_df.columns or 'generation' not in merged_df.columns or merged_df['is_legendary'].empty:
+        print("Error: Required columns are missing or empty.")
+        return
+
+    # Filter for legendary Pokémon and count per generation
+    legendary_counts = merged_df[merged_df['is_legendary'] == 1]['generation'].value_counts().reindex(range(1, 8), fill_value=0)
+
+    if legendary_counts.empty:
+        print("No data available for legendary Pokémon counts.")
+        return
+
+    fig, ax = plt.subplots(figsize=(12, 8))  # Adjust size for better formatting
+    bars = ax.bar(legendary_counts.index, legendary_counts.values, color='#FFD700')  # Gold color for legendary Pokémon
+    ax.set_title('Number of Legendary Pokémon per Generation')
+    ax.set_xlabel('Generation')
+    ax.set_ylabel('Count')
+
+    # Ensure x-axis is ordered from 1 to 7
+    ax.set_xticks(range(1, 8))  # Set x-axis ticks to cover all 7 generations
+    ax.set_xticklabels(range(1, 8))  # Ensure labels match the ticks
+    ax.tick_params(axis='x', rotation=0)  # No rotation for x-axis labels
+
+    # Set y-axis to whole numbers increasing by 2
+    ax.set_yticks(range(0, legendary_counts.max() + 2, 2))
+
+    # Adjust x-axis limits and bar width
+    ax.set_xlim(0.5, 7.5)  # Center bars within the x-axis limits
+
+    # Adjust layout to fit all elements
+    plt.tight_layout()
+
+    canvas = FigureCanvasTkAgg(fig, master=plot_frame)
+    canvas.draw()
+    canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
+
