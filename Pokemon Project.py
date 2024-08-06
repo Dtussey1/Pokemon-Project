@@ -10,26 +10,15 @@ df = pd.read_csv(file_path)
 print(df.head())
 
 # Define custom colors for Pokémon types
+# Create a color map for Pokémon types with distinct hexadecimal colors
 type_colors = {
-    'Bug': '#A8B820',
-    'Dark': '#705848',
-    'Dragon': '#7038F8',
-    'Electric': '#F8D030',
-    'Fairy': '#EE99AC',
-    'Fighting': '#C03028',
-    'Fire': '#F08030',
-    'Flying': '#A890F0',
-    'Ghost': '#705898',
-    'Grass': '#78C850',
-    'Ground': '#E0C068',
-    'Ice': '#98D8D8',
-    'Normal': '#A8A878',
-    'Poison': '#A040A0',
-    'Psychic': '#F85888',
-    'Rock': '#B8A038',
-    'Steel': '#B8B8D0',
-    'Water': '#6890F0'
+    'grass': '#4CAF50', 'water': '#2196F3', 'fire': '#F44336', 'electric': '#FFEB3B',
+    'psychic': '#9C27B0', 'ice': '#00BCD4', 'dragon': '#FF9800', 'dark': '#212121',
+    'fairy': '#E91E63', 'fighting': '#795548', 'flying': '#03A9F4', 'poison': '#8E24AA',
+    'ground': '#8B4513', 'rock': '#9E9E9E', 'bug': '#ADFF2F', 'steel': '#A9A9A9',
+    'normal': '#C0C0C0', 'ghost': '#8A2BE2'
 }
+
 # Plot the count of Pokémon types
 def plot_type_counts():
     
