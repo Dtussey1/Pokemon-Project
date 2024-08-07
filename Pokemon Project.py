@@ -48,7 +48,7 @@ graph_options = [
     "Types of Pokémon per Generation",
     "Number of Legendary Pokémon per Generation"
 ]
-selected_graph.set(graph_options[0])  # default value
+selected_graph.set(graph_options[0])  
 
 dropdown = ttk.Combobox(root, textvariable=selected_graph, values=graph_options, width=40)
 dropdown.pack(pady=10)
@@ -67,7 +67,7 @@ def plot_frequency_of_types():
     type_counts = merged_df['Type1'].str.lower().value_counts()  # Convert to lowercase to match color map
     
     # Set colors based on Pokémon types
-    colors = [type_colors.get(t, '#B0BEC5') for t in type_counts.index]  # Default to light gray if type not found
+    colors = [type_colors.get(t, '#B0BEC5') for t in type_counts.index]  
     
     bars = ax.bar(type_counts.index, type_counts.values, color=colors)
     ax.set_title('Frequency of Pokémon Types')
@@ -136,15 +136,15 @@ def plot_legendary_per_generation():
     ax.set_ylabel('Count')
 
     # Ensure x-axis is ordered from 1 to 7
-    ax.set_xticks(range(1, 8))  # Set x-axis ticks to cover all 7 generations
-    ax.set_xticklabels(range(1, 8))  # Ensure labels match the ticks
-    ax.tick_params(axis='x', rotation=0)  # No rotation for x-axis labels
+    ax.set_xticks(range(1, 8))  
+    ax.set_xticklabels(range(1, 8))   
+    ax.tick_params(axis='x', rotation=0)  
 
     # Set y-axis to whole numbers increasing by 2
     ax.set_yticks(range(0, legendary_counts.max() + 2, 2))
 
     # Adjust x-axis limits and bar width
-    ax.set_xlim(0.5, 7.5)  # Center bars within the x-axis limits
+    ax.set_xlim(0.5, 7.5)  
 
     # Adjust layout to fit all elements
     plt.tight_layout()
