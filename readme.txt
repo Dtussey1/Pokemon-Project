@@ -1,42 +1,62 @@
-This application will utilize two CSV files for the requirements of the capstone project.
+# Pokémon Project
 
-# Pokemon data visualization tool
+## Overview
 
+This project uses Pokémon data to create visualization tools to interpret the data.
 
 ## Setup
 
 1. **Clone the repository:**
-
-
-2. **Download the required CSV files from Kaggle:**
-    - Go to the [Kaggle Dataset Page](https://www.kaggle.com/dataset-page-url)
-    - Download https://www.kaggle.com/datasets/vishalsubbiah/pokemon-images-and-types and https://www.kaggle.com/datasets/rounakbanik/pokemon
-
-3. **Place the downloaded files in the `data` directory:**
     ```sh
-    mkdir data
-    mv /path/to/downloaded/file1.csv data/file1.csv
-    mv /path/to/downloaded/file2.csv data/file2.csv
+    git clone https://github.com/Dtussey1/Pokemon-Project.git
+    cd Pokemon-Project
     ```
 
-4. **Install dependencies:**
-import pandas as pd
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import tkinter as tk
-from tkinter import ttk
+2. **Set up a virtual environment (optional but recommended):**
+    - **For Windows:**
+      ```sh
+      python -m venv venv
+      venv\Scripts\activate
+      ```
+    - **For macOS/Linux:**
+      ```sh
+      python3 -m venv venv
+      source venv/bin/activate
+      ```
 
-
-5. **Run the project:**
+3. **Install dependencies:**
     ```sh
-    Pokemon Project.py
+    pip install -r requirements.txt
+    ```
+
+4. **Download the required CSV files:**
+    - **From the Pokémon Images and Types Dataset:**
+      - Go to the [Pokémon Images and Types Dataset on Kaggle](https://www.kaggle.com/datasets/vishalsubbiah/pokemon-images-and-types)
+      - Download the following CSV files:
+        - `pokemon.csv`
+    - **From the Pokémon Dataset:**
+      - Go to the [Pokémon Dataset on Kaggle](https://www.kaggle.com/datasets/rounakbanik/pokemon)
+      - Download the CSV file, then rename it to `pokemon_file_2.csv`.
+
+5. **Place the downloaded files in the `data` directory:**
+    ```sh
+    mkdir data
+    mv /path/to/downloaded/pokemon.csv data/pokemon.csv
+    mv /path/to/downloaded/pokemon_file_2.csv data/pokemon_file_2.csv
+    ```
+
+6. **Run the project:**
+    ```sh
+    python main.py
     ```
 
 ## Notes
 
 - Ensure you have Python installed.
-- Follow any additional setup instructions specific to your project.
+- The `requirements.txt` file includes all necessary packages. If you encounter any issues, make sure your Python environment is up to date.
+- The dataset files should be placed in the `data` directory within the project folder.
 
 ## Acknowledgements
 
-- Datasets provided by https://www.kaggle.com/rounakbanik and https://www.kaggle.com/vishalsubbiah on Kaggle.
+- Pokémon Images and Types dataset provided by [Vishal Subbiah on Kaggle](https://www.kaggle.com/datasets/vishalsubbiah/pokemon-images-and-types).
+- Pokémon dataset provided by [Rounak Banik on Kaggle](https://www.kaggle.com/datasets/rounakbanik/pokemon).
