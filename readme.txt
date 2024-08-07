@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project uses Pokémon data to create visualization tools to interpret the data. The project will read two CSV file, clean the data and perform a pandas merge, and plot three graphs using matplotlib. My goal with this project is to make the data contained within the two files provided more readable to the user. This will be accomplished by creating various graphs showing some points of interest within the datsets in a visually pleasing and informative manner. I intend to show the user the distribution of pokemon types and occurrence of legendary Pokemon across the generations that this data covers.
+This project uses Pokémon data to create visualization tools to interpret the data. The project will read two CSV files, clean the data and perform a pandas merge, and plot three graphs using matplotlib. My goal with this project is to make the data contained within the two files provided more readable to the user. This will be accomplished by creating various graphs showing some points of interest within the datsets in a visually pleasing and informative manner. I intend to show the user the distribution of Pokemon types and occurrence of legendary Pokemon across the generations that this data covers.
 
 ## Setup
 
