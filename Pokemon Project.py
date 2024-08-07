@@ -149,3 +149,8 @@ def plot_legendary_per_generation():
     canvas.draw()
     canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
 
+def update_plot(*args):
+    """Update the plot based on the selected graph."""
+    # Clear the previous plot
+    for widget in plot_frame.winfo_children():
+        widget.destroy()
