@@ -4,9 +4,23 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import tkinter as tk
 from tkinter import ttk
 
-# Load the data from CSV files
-df1 = pd.read_csv(r"C:\Users\Dtussey\OneDrive\Pokemon Project\pokemon.csv")
-df2 = pd.read_csv(r"C:\Users\Dtussey\OneDrive\Pokemon Project\pokemon file 2.csv")
+# Define the directory where the CSV files should be located
+DATA_DIR = 'data'
+
+# Define the file paths
+pokemon_types_file = os.path.join(DATA_DIR, 'pokemon_types.csv')
+pokemon_file_2 = os.path.join(DATA_DIR, 'pokemon_file_2.csv')
+
+# Check if the files exist
+if not os.path.exists(pokemon_types_file):
+    raise FileNotFoundError(f"{pokemon_types_file} not found. Please ensure the file is placed in the {DATA_DIR} directory.")
+
+if not os.path.exists(pokemon_file_2):
+    raise FileNotFoundError(f"{pokemon_file_2} not found. Please ensure the file is placed in the {DATA_DIR} directory.")
+
+# Load the CSV files into DataFrames
+df1 = pd.read_csv(pokemon_types_file)
+df2 = pd.read_csv(pokemon_file_2)
 
 # Rename 'type1' in df2 to 'Type1'
 df2 = df2.rename(columns={'type1': 'Type1'})
