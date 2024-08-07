@@ -30,48 +30,23 @@ This project uses Pokémon data to create visualization tools to interpret the d
     ```
 
 4. **Download the required CSV files:**
-    - **From the Pokémon Images and Types Dataset:**
-      - Go to the [Pokémon Images and Types Dataset on Kaggle](https://www.kaggle.com/datasets/vishalsubbiah/pokemon-images-and-types)
-      - Download the following CSV file:
-        - `pokemon.csv`
+    - **Download from OneDrive:**
+      - [pokemon.csv](https://1drv.ms/x/c/2dee6ebdd0760e9f/EVYH_auH5hRJuG3O1rludYABE_OPZP30XbWZGr5cgUd4bA?e=VbGujS)
+      - [pokemon_file_2.csv](https://1drv.ms/x/c/2dee6ebdd0760e9f/EQQqBTYF1e1Io5lun2vvHG0BBrj3gcGhzWr1EOEGOcpfSA?e=BRCIzS)
 
-    - **From the Pokémon Dataset:**
-      - Go to the [Pokémon Dataset on Kaggle](https://www.kaggle.com/datasets/rounakbanik/pokemon)
-      - Download the CSV file, then rename it to `pokemon_file_2.csv`.
+    - Place the downloaded files in the project directory (the same directory as `Pokemon_Project.py`).
 
-5. **Place the downloaded files in the `data` directory:**
-
-    - Create the `data` directory in your project folder (if it does not already exist):
-      ```sh
-      mkdir data
-      ```
-
-    - Move or copy the downloaded CSV files into the `data` directory. Replace `/path/to/downloaded/` with the actual path where you downloaded the files. For example:
-      ```sh
-      mv /path/to/downloaded/pokemon.csv data/pokemon.csv
-      mv /path/to/downloaded/pokemon_file_2.csv data/pokemon_file_2.csv
-      ```
-
-    **Example for users:**
-    If you downloaded the files to your `Downloads` folder, the commands might look like:
+5. **Run the project:**
     ```sh
-    mv ~/Downloads/pokemon.csv data/pokemon.csv
-    mv ~/Downloads/pokemon_file_2.csv data/pokemon_file_2.csv
-    ```
-
-...
-
-
-6. **Run the project:**
-    ```sh
-    python main.py
+    python Pokemon_Project.py
     ```
 
 ## Notes
 
 - Ensure you have Python installed.
 - The `requirements.txt` file includes all necessary packages. If you encounter any issues, make sure your Python environment is up to date.
-- The dataset files should be placed in the `data` directory within the project folder.
+- The CSV files should be placed in the project directory where `Pokemon_Project.py` is located.
+
 
 ## Acknowledgements
 

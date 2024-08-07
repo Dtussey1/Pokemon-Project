@@ -4,22 +4,20 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import tkinter as tk
 from tkinter import ttk
 
-# Define the directory where the CSV files should be located
-DATA_DIR = 'data'
-
-# Define the file paths
-pokemon_types_file = os.path.join(DATA_DIR, 'pokemon_types.csv')
-pokemon_file_2 = os.path.join(DATA_DIR, 'pokemon_file_2.csv')
+# Define the file paths relative to the script location
+pokemon_file = 'pokemon.csv'
+pokemon_file_2 = 'pokemon_file_2.csv'
 
 # Check if the files exist
-if not os.path.exists(pokemon_types_file):
-    raise FileNotFoundError(f"{pokemon_types_file} not found. Please ensure the file is placed in the {DATA_DIR} directory.")
+def check_file_exists(file_path):
+    if not os.path.isfile(file_path):
+        raise FileNotFoundError(f"{file_path} not found. Please ensure the file is placed in the project directory.")
 
-if not os.path.exists(pokemon_file_2):
-    raise FileNotFoundError(f"{pokemon_file_2} not found. Please ensure the file is placed in the {DATA_DIR} directory.")
+check_file_exists(pokemon_file)
+check_file_exists(pokemon_file_2)
 
 # Load the CSV files into DataFrames
-df1 = pd.read_csv(pokemon_types_file)
+df1 = pd.read_csv(pokemon_file)
 df2 = pd.read_csv(pokemon_file_2)
 
 # Rename 'type1' in df2 to 'Type1'
