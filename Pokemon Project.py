@@ -154,3 +154,20 @@ def update_plot(*args):
     # Clear the previous plot
     for widget in plot_frame.winfo_children():
         widget.destroy()
+
+    # Plot the selected graph
+    if selected_graph.get() == "Frequency of Pokémon Types":
+        plot_frequency_of_types()
+    elif selected_graph.get() == "Types of Pokémon per Generation":
+        plot_types_per_generation()
+    elif selected_graph.get() == "Number of Legendary Pokémon per Generation":
+        plot_legendary_per_generation()
+
+# Link the dropdown selection to the update_plot function
+dropdown.bind("<<ComboboxSelected>>", update_plot)
+
+# Initial plot
+update_plot()
+
+# Run the GUI main loop
+root.mainloop()
