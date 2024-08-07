@@ -29,14 +29,8 @@ This project uses Pokémon data to create visualization tools to interpret the d
     pip install -r requirements.txt
     ```
 
-4. **Download the required CSV files:**
-    - **Download from OneDrive:**
-      - [pokemon.csv](https://1drv.ms/x/c/2dee6ebdd0760e9f/EVYH_auH5hRJuG3O1rludYABE_OPZP30XbWZGr5cgUd4bA?e=VbGujS)
-      - [pokemon_file_2.csv](https://1drv.ms/x/c/2dee6ebdd0760e9f/EQQqBTYF1e1Io5lun2vvHG0BBrj3gcGhzWr1EOEGOcpfSA?e=BRCIzS)
 
-    - Place the downloaded files in the project directory (the same directory as `Pokemon_Project.py`).
-
-5. **Run the project:**
+4. **Run the project:**
     ```sh
     python Pokemon_Project.py
     ```
@@ -45,7 +39,6 @@ This project uses Pokémon data to create visualization tools to interpret the d
 
 - Ensure you have Python installed.
 - The `requirements.txt` file includes all necessary packages. If you encounter any issues, make sure your Python environment is up to date.
-- The CSV files should be placed in the project directory where `Pokemon_Project.py` is located.
 
 
 ## Acknowledgements
